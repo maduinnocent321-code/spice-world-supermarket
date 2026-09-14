@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Delivery | Spice World Supermarket</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <h2>Spice World</h2>
+            <span>Supermarket</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="offers.html">Offers</a>
+            <a href="delivery.html">Delivery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="cart.html" class="basket">
+            🛒 Basket <span id="cart-count">0</span>
+        </a>
+
+    </header>
+
+
+    <section class="shop-hero">
+
+        <p class="section-label">
+            DELIVERY
+        </p>
+
+        <h1>
+            Groceries delivered to your door
+        </h1>
+
+        <p>
+            Simple, convenient local delivery and collection options.
+        </p>
+
+    </section>
+
+
+    <section class="delivery-info-section">
+
+        <div class="delivery-info-card">
+
+            <div class="delivery-icon">
+                🚚
+            </div>
+
+            <h2>
+                Standard Delivery
+            </h2>
+
+            <p>
+                Get your groceries delivered directly to your home.
+            </p>
+
+            <strong>
+                £3.99
+            </strong>
+
+        </div>
+
+
+        <div class="delivery-info-card">
+
+            <div class="delivery-icon">
+                🎉
+            </div>
+
+            <h2>
+                Free Delivery
+            </h2>
+
+            <p>
+                Spend £50 or more and your standard delivery is free.
+            </p>
+
+            <strong>
+                FREE over £50
+            </strong>
+
+        </div>
+
+
+        <div class="delivery-info-card">
+
+            <div class="delivery-icon">
+                🏪
+            </div>
+
+            <h2>
+                Store Collection
+            </h2>
+
+            <p>
+                Order online and collect your groceries from the store.
+            </p>
+
+            <strong>
+                FREE
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <section class="delivery-process">
+
+        <div class="delivery-process-heading">
+
+            <p class="section-label">
+                HOW IT WORKS
+            </p>
+
+            <h2>
+                Shopping made simple
+            </h2>
+
+        </div>
+
+
+        <div class="delivery-steps">
+
+            <div class="delivery-step">
+
+                <span>
+                    1
+                </span>
+
+                <h3>
+                    Shop Online
+                </h3>
+
+                <p>
+                    Browse the supermarket and add your favourite products to your basket.
+                </p>
+
+            </div>
+
+
+            <div class="delivery-step">
+
+                <span>
+                    2
+                </span>
+
+                <h3>
+                    Choose Delivery
+                </h3>
+
+                <p>
+                    Enter your address and choose delivery or store collection.
+                </p>
+
+            </div>
+
+
+            <div class="delivery-step">
+
+                <span>
+                    3
+                </span>
+
+                <h3>
+                    Receive Your Order
+                </h3>
+
+                <p>
+                    We prepare your groceries and get them ready for delivery or collection.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="delivery-cta">
+
+        <div>
+
+            <p class="section-label">
+                READY TO SHOP?
+            </p>
+
+            <h2>
+                Order your groceries today
+            </h2>
+
+            <p>
+                Browse our products and start building your basket.
+            </p>
+
+        </div>
+
+        <a href="shop.html">
+            Start Shopping
+        </a>
+
+    </section>
+
+
+    <script>
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+        const quantity =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.quantity,
+                0
+            );
+
+        document.getElementById(
+            "cart-count"
+        ).textContent = quantity;
+
+    </script>
+
+</body>
+
+</html>
