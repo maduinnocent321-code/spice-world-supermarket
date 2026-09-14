@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | Spice World Supermarket</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="success-page">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>Order Confirmed!</h1>
+
+            <p id="thank-you-message"></p>
+
+            <div class="order-confirmation-details">
+
+                <p>
+                    <strong>Order Number:</strong>
+                    <span id="order-number"></span>
+                </p>
+
+                <p>
+                    <strong>Total:</strong>
+                    <span id="order-total"></span>
+                </p>
+
+                <p>
+                    <strong>Delivery:</strong>
+                    <span id="delivery-method"></span>
+                </p>
+
+                <p>
+                    <strong>Payment:</strong>
+                    <span id="payment-method"></span>
+                </p>
+
+            </div>
+
+            <h2>Your Items</h2>
+
+            <div id="success-items"></div>
+
+            <p class="confirmation-text">
+                We have received your order and will begin preparing it.
+            </p>
+
+            <a href="shop.html" class="shop-button">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const order =
+            JSON.parse(localStorage.getItem("lastOrder"));
+
+        if (!order) {
+
+            window.location.href = "shop.html";
+
+        } else {
+
+            document.getElementById(
+                "thank-you-message"
+            ).textContent =
+                `Thank you, ${order.customer.name}.`;
+
+            document.getElementById(
+                "order-number"
+            ).textContent =
+                order.orderNumber;
+
+            document.getElementById(
+                "order-total"
+            ).textContent =
+                "£" + order.total.toFixed(2);
+
+            document.getElementById(
+                "delivery-method"
+            ).textContent =
+                order.deliveryMethod === "collection"
+                ? "Collect from Store"
+                : "Standard Delivery";
+
+            document.getElementById(
+                "payment-method"
+            ).textContent =
+                order.paymentMethod === "cash"
+                ? "Cash on Delivery"
+                : "Card Payment";
+
+            const itemsContainer =
+                document.getElementById("success-items");
+
+            order.items.forEach(function(item) {
+
+                itemsContainer.innerHTML += `
+                    <div class="checkout-item">
+
+                        <div>
+                            <strong>${item.name}</strong>
+
+                            <p>
+                                Quantity: ${item.quantity}
+                            </p>
+                        </div>
+
+                        <strong>
+                            £${(
+                                item.price *
+                                item.quantity
+                            ).toFixed(2)}
+                        </strong>
+
+                    </div>
+                `;
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
